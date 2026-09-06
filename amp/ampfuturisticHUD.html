@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+<html amp lang="id">
+<head>
+
+<meta charset="utf-8">
+<meta name="google-site-verification" content="gqZpty6Vsp7Qz8jtjwwZHuQHnVEMDqo5vkMHGWNB5cA" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>###TITLE###</title>
+<meta name="description" content="###DESCRIPTION###">
+<link rel="canonical" href="###CANONICAL###">
+<meta property="og:url" content="###CANONICAL###" />
+<link rel="shortcut icon" href="###ICON###">
+<link rel="icon" type="image/png" href="###ICON###">
+<link rel="apple-touch-icon" href="###ICON###">
+<link rel="preconnect" href="https://cdn.ampproject.org">
+<link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "###CANONICAL###"
+  },
+  "headline": "###TITLE###",
+  "image": [
+    "###BANNER###"
+  ],
+  "datePublished": "2026-04-03T08:00:00+07:00",
+  "dateModified": "2026-04-03T09:20:00+07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Admin"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "###KW###",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "###LOGO###"
+    }
+  },
+  "description": "###DESCRIPTION###"
+}
+</script>
+
+<style amp-custom>
+/* ===== RESET & BASE ===== */
+*,:after,:before{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  min-height:var(--vh,100vh);
+  min-width:320px;
+  overflow-x:hidden;
+  overflow-wrap:break-word;
+  line-height:1;
+  text-size-adjust:none;
+  font-family:'Rajdhani',sans-serif;
+  background:#0a0505;
+  color:#fad1d1;
+}
+
+a{color:inherit;text-decoration:none;transition:color .25s ease}
+ul{list-style:none}
+img{max-width:100%;vertical-align:top}
+
+/* ===== CSS VARIABLES (HIJAU SOFT THEME) ===== */
+:root{
+  --vh:100vh;
+
+  /* warna utama */
+  --red-deep:#130707;
+  --red-dark:#1f0f0f;
+  --red-mid:#3d1f1f;
+  --red-soft:#fff;
+  --red-bright:#e76e6e;
+  --red-glow:#8f4f4f;
+  --white:#fdecec;
+  --text-dim:#8f6b6b;
+  --text-bright:#fad1d1;
+
+  --card-bg:rgba(40, 10, 10, 0.7);
+  --card-border:rgba(231, 110, 110, 0.25);
+
+  --glow-shadow:
+    0 0 18px rgba(143, 79, 79, 0.35),
+    0 0 50px rgba(143, 79, 79, 0.15);
+
+  --glow-shadow-sm:
+    0 0 10px rgba(143, 79, 79, 0.25);
+}
+
+/* ===== BACKGROUND ===== */
+#page-wrap{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:
+        radial-gradient(ellipse at 20% 20%,rgb(77, 19, 19) 0%,transparent 50%),
+        radial-gradient(ellipse at 80% 80%,rgb(51, 11, 11) 0%,transparent 50%),
+        radial-gradient(ellipse at 50% 0%,rgb(73, 6, 6) 0%,transparent 60%),
+        linear-gradient(180deg,#300e0e 0%,#380e0e 40%,#351414 100%);
+    overflow:hidden;
+}
+
+/* ===== STAR LAYER ===== */
+.star-layer{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+}
+
+/* ===== NEBULA ORBS (HIJAU) ===== */
+.nebula-orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    pointer-events:none;
+    z-index:0;
+}
+
+.nebula-orb.n1{
+    width:300px;
+    height:300px;
+    background:radial-gradient(
+        circle,
+        rgba(231, 110, 110, 0.25),
+        transparent 70%
+    );
+    top:-80px;
+    left:-60px;
+    animation:orb-drift1 12s ease-in-out infinite alternate;
+}
+
+.nebula-orb.n2{
+    width:250px;
+    height:250px;
+    background:radial-gradient(
+        circle,
+        rgba(143, 79, 79, 0.2),
+        transparent 70%
+    );
+    top:40%;
+    right:-60px;
+    animation:orb-drift2 15s ease-in-out infinite alternate;
+}
+
+.nebula-orb.n3{
+    width:200px;
+    height:200px;
+    background:radial-gradient(
+        circle,
+        rgba(231, 110, 110, 0.15),
+        transparent 70%
+    );
+    bottom:10%;
+    left:20%;
+    animation:orb-drift1 10s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift1{
+    from{transform:translate(0,0)}
+    to{transform:translate(20px,30px)}
+}
+
+@keyframes orb-drift2{
+    from{transform:translate(0,0)}
+    to{transform:translate(-25px,20px)}
+}
+/* ===== SCANLINE OVERLAY ===== */
+.scanlines{
+    position:fixed;
+    top:0;left:0;width:100%;height:100%;
+    background:repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 0, 0, 0.015) 2px,
+        rgba(255, 0, 0, 0.015) 4px
+    );
+    pointer-events:none;
+    z-index:1;
+}
+
+/* ===== GRID LINE DECORATION ===== */
+.grid-lines{
+    position:fixed;
+    top:0;left:0;width:100%;height:100%;
+    background-image:
+        linear-gradient(rgba(255, 0, 0, 0.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255, 0, 0, 0.04) 1px,transparent 1px);
+    background-size:50px 50px;
+    pointer-events:none;
+    z-index:0;
+}
+
+/* ===== MAIN CONTAINER ===== */
+#main-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:480px;
+    padding:0 0 2rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+}
+
+/* ===== HEADER SECTION ===== */
+.header-section{
+    width:100%;
+    padding:1.5rem 1.25rem 1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    position:relative;
+}
+
+/* Neon top border */
+.header-section::before{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;
+    height:2px;
+    background:linear-gradient(90deg,transparent,var(--green-neon),var(--blue-bright),var(--green-neon),transparent);
+    animation:border-pulse 3s ease-in-out infinite;
+}
+@keyframes border-pulse{
+    0%,100%{opacity:0.6}
+    50%{opacity:1}
+}
+
+/* ===== LOGO WRAPPER ===== */
+.logo-wrap{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+.logo-wrap::before{
+    content:'';
+    position:absolute;
+    inset:-8px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--blue-bright),var(--green-neon),var(--blue-bright));
+    opacity:0.2;
+    animation:logo-glow 2.5s ease-in-out infinite alternate;
+}
+@keyframes logo-glow{from{opacity:0.15;filter:blur(4px)}to{opacity:0.35;filter:blur(8px)}}
+
+.logo-img-wrap{
+    display:block;
+    line-height:0;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid rgba(255, 0, 0, 0.4);
+    box-shadow:var(--glow-shadow-sm);
+}
+.logo-img-wrap amp-img{
+    display:block;
+    width:220px;
+    height:auto;
+}
+
+/* ===== STATUS BADGE ===== */
+.status-badge{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    background:rgba(255, 0, 0, 0.08);
+    border:1px solid rgba(255, 0, 0, 0.3);
+    border-radius:100px;
+    padding:0.35rem 1rem;
+    font-family:'Orbitron',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    color: #ffffff;
+    text-transform:uppercase;
+}
+.status-dot{
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--green-neon);
+    box-shadow:0 0 8px var(--green-neon);
+    animation:blink 1.2s ease-in-out infinite;
+    flex-shrink:0;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+/* ===== HERO SECTION ===== */
+.hero-section{
+    width:100%;
+    padding:0 1.25rem 1.25rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title{
+    font-family:'Orbitron',monospace;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:0.08em;
+    text-align:center;
+    color:var(--white);
+    text-shadow:
+        0 0 10px var(--blue-glow),
+        0 0 30px var(--blue-bright);
+    line-height:1.3;
+    text-transform:uppercase;
+    animation:title-shimmer 4s ease-in-out infinite;
+}
+@keyframes title-shimmer{
+    0%,100%{text-shadow:0 0 10px var(--blue-glow),0 0 30px var(--blue-bright)}
+    50%{text-shadow:0 0 20px var(--green-neon),0 0 50px var(--blue-glow),0 0 80px var(--blue-bright)}
+}
+
+/* ===== BANNER IMAGE ===== */
+.banner-frame{
+    width:100%;
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid rgba(255, 0, 0, 0.35);
+    box-shadow:
+        var(--glow-shadow),
+        inset 0 0 30px rgba(150, 0, 0, 0.4);
+}
+.banner-frame::before{
+    content:'';
+    position:absolute;
+    top:0;left:-100%;width:60%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);
+    animation:shine 5s ease-in-out infinite;
+    z-index:2;
+    pointer-events:none;
+}
+@keyframes shine{0%{left:-100%}60%,100%{left:160%}}
+
+.banner-frame amp-img{
+    display:block;
+    width:100%;
+}
+
+/* Corner decorations */
+.corner{
+    position:absolute;
+    width:16px;height:16px;
+    z-index:3;
+    pointer-events:none;
+}
+.corner.tl{top:6px;left:6px;border-top:2px solid var(--green-neon);border-left:2px solid var(--green-neon)}
+.corner.tr{top:6px;right:6px;border-top:2px solid var(--green-neon);border-right:2px solid var(--green-neon)}
+.corner.bl{bottom:6px;left:6px;border-bottom:2px solid var(--green-neon);border-left:2px solid var(--green-neon)}
+.corner.br{bottom:6px;right:6px;border-bottom:2px solid var(--green-neon);border-right:2px solid var(--green-neon)}
+
+/* ===== STATS BAR ===== */
+.stats-bar{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:0.5rem;
+}
+
+.stat-item{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:10px;
+    padding:0.6rem 0.4rem;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    position:relative;
+    overflow:hidden;
+}
+
+/* garis atas efek glow */
+.stat-item::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--green-neon),
+        transparent
+    );
+}
+
+/* angka utama */
+.stat-value{
+    display:block;
+    font-family:'Orbitron',monospace;
+    font-size:10px;
+    font-weight:700;
+    color:var(--green-light);
+    text-shadow:0 0 8px var(--green-neon);
+    line-height:1;
+    margin-bottom:0.3rem;
+}
+
+/* label bawah */
+.stat-label{
+    display:block;
+    font-size:12px;
+    color:var(--red-soft);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-family:'Orbitron',monospace;
+}
+
+/* ===== BUTTONS SECTION ===== */
+.buttons-section{
+    width:100%;
+    padding:0 1.25rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.875rem;
+}
+
+/* Main CTA Button */
+.btn-cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.75rem;
+    width:100%;
+    height:3.5rem;
+    border-radius:10px;
+    font-family:'Orbitron',monospace;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    position:relative;
+    overflow:hidden;
+    transition:transform .2s ease,box-shadow .2s ease;
+}
+.btn-cta:active{transform:scale(0.97)}
+
+/* Primary button */
+/* ===== PRIMARY BUTTON (HIJAU SOFT) ===== */
+.btn-primary{
+    background:linear-gradient(
+        135deg,
+        #e76e6e,
+        #8f4f4f,
+        #8f4f4f,
+        #531414
+    );
+    background-size:300% 300%;
+    color:#ecfdf5;
+    border:1px solid rgba(231, 110, 110, 0.5);
+    box-shadow:
+        0 0 18px rgba(143, 79, 79, 0.4),
+        0 0 35px rgba(143, 79, 79, 0.25),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        inset 0 -1px 0 rgba(0,0,0,0.4);
+    animation:btn-flow 3s ease infinite;
+}
+
+@keyframes btn-flow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* ===== SECONDARY BUTTON ===== */
+.btn-secondary{
+    background:linear-gradient(
+        135deg,
+        rgba(197, 34, 34, 0.85),
+        rgba(83, 20, 20, 0.9)
+    );
+    color:#d1fae5;
+    border:1px solid rgba(231, 110, 110, 0.4);
+    box-shadow:
+        0 0 12px rgba(143, 79, 79, 0.25),
+        inset 0 1px 0 rgba(231, 110, 110, 0.1);
+}
+
+/* ===== BUTTON SHIMMER EFFECT ===== */
+.btn-cta::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:50%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.12),
+        transparent
+    );
+    animation:btn-shine 3s ease-in-out infinite;
+}
+
+.btn-primary::before{animation-delay:0s}
+.btn-secondary::before{animation-delay:1.5s}
+
+@keyframes btn-shine{
+    0%{left:-100%}
+    50%,100%{left:150%}
+}
+
+/* ===== ICON ===== */
+.btn-icon{
+    width:1.2rem;
+    height:1.2rem;
+    fill:currentColor;
+    flex-shrink:0;
+}
+/* ===== DIVIDER ===== */
+/* ===== DIVIDER ===== */
+/* ===== DIVIDER ===== */
+.divider{
+    width:100%;
+    padding:0 1.25rem;
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+}
+
+.divider-line{
+    flex:1;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(143, 79, 79, 0.35),
+        transparent
+    );
+}
+
+.divider-text{
+    font-family:'Orbitron',monospace;
+    font-size:20px;
+    letter-spacing:0.15em;
+    color:#fad1d1;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+
+/* ===== FEATURES SECTION ===== */
+.features-section{
+    width:100%;
+    padding:0 1.25rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.6rem;
+}
+
+.feature-card{
+    display:flex;
+    align-items:center;
+    gap:0.875rem;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:0.875rem 1rem;
+    position:relative;
+    overflow:hidden;
+    backdrop-filter:blur(8px);
+}
+
+.feature-card::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:linear-gradient(
+        180deg,
+        #e76e6e,
+        #8f4f4f
+    );
+    box-shadow:0 0 8px #8f4f4f;
+}
+
+.feature-icon{
+    width:2.2rem;
+    height:2.2rem;
+    border-radius:8px;
+    background:linear-gradient(
+        135deg,
+        rgba(231, 110, 110, 0.25),
+        rgba(143, 79, 79, 0.2)
+    );
+    border:1px solid rgba(231, 110, 110, 0.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    box-shadow:0 0 10px rgba(143, 79, 79, 0.25);
+}
+
+.feature-icon svg{
+    width:1rem;
+    height:1rem;
+    fill:#fdecec;
+}
+
+.feature-text{flex:1;min-width:0}
+
+.feature-title{
+    font-family:'Orbitron',monospace;
+    font-size:14px;
+    font-weight:700;
+    color:#fdecec;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:0.2rem;
+}
+
+.feature-desc{
+    font-size:10px;
+    color:#8f6b6b;
+    line-height:1.5;
+}
+
+.feature-badge{
+    font-family:'Orbitron',monospace;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:0.1em;
+    color:#fad1d1;
+    background:#120202;
+    border:1px solid rgba(231, 110, 110, 0.35);
+    border-radius:4px;
+    padding:0.2rem 0.4rem;
+    white-space:nowrap;
+    text-transform:uppercase;
+    flex-shrink:0;
+}
+
+/* ===== TICKER / SCROLLING NEWS (SUDAH HIJAU) ===== */
+.ticker-wrap{
+    width:100%;
+    background:rgba(40, 10, 10, 0.6);
+    border-top:1px solid rgba(143, 79, 79, 0.3);
+    border-bottom:1px solid rgba(143, 79, 79, 0.3);
+    overflow:hidden;
+    padding:0.5rem 0;
+    position:relative;
+}
+
+.ticker-label{
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    display:flex;
+    align-items:center;
+    padding:0 0.75rem;
+    background:linear-gradient(
+        90deg,
+        #8f4f4f,
+        #e76e6e
+    );
+    font-family:'Orbitron',monospace;
+    font-size:10px;
+    font-weight:700;
+    color:#2c0202;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    z-index:2;
+    box-shadow:4px 0 12px rgba(143, 79, 79, 0.4);
+}
+
+.ticker-track{
+    display:flex;
+    white-space:nowrap;
+    padding-left:6rem;
+    animation:ticker-scroll 20s linear infinite;
+}
+
+.ticker-item{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    font-size:10px;
+    color:#fff;
+    padding:0 1.5rem;
+    letter-spacing:0.03em;
+}
+
+.ticker-sep{
+    color:#e76e6e;
+    font-weight:700;
+}
+
+@keyframes ticker-scroll{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+}
+/* ===== FOOTER ===== */
+.footer-section{
+    width:100%;
+    padding:1rem 1.25rem 0.5rem;
+    text-align:center;
+}
+
+.footer-text{
+    font-family:'Orbitron',monospace;
+    font-size:15px;
+    color:#fad1d1;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    opacity:0.7;
+}
+
+/* ===== PULSE RING (HIJAU SOFT) ===== */
+.pulse-ring{
+    position:fixed;
+    bottom:10%;
+    right:5%;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:1px solid rgba(143, 79, 79, 0.2);
+    animation:pulse-expand 4s ease-out infinite;
+    pointer-events:none;
+    z-index:0;
+}
+
+.pulse-ring.r2{
+    animation-delay:1.3s;
+    width:100px;
+    height:100px;
+    bottom:8%;
+    right:3%;
+}
+
+.pulse-ring.r3{
+    animation-delay:2.6s;
+    width:120px;
+    height:120px;
+    bottom:6%;
+    right:1%;
+}
+
+@keyframes pulse-expand{
+    0%{
+        opacity:0.5;
+        transform:scale(0.8);
+    }
+    100%{
+        opacity:0;
+        transform:scale(1.4);
+    }
+}
+
+/* ===== AMP ENFORCED ===== */
+amp-img.logo-amp{
+    display:block;
+    width:220px;
+    max-width:100%;
+}
+
+amp-img.banner-amp{
+    display:block;
+    width:100%;
+}
+
+.amp-wp-enforced-sizes{
+    display:inline-block;
+}
+
+[hidden]{
+    display:none;
+}
+</style>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+<noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+<body>
+
+<!-- SVG icon defs (hidden) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" hidden aria-hidden="true">
+  <symbol id="ico-login" viewBox="0 0 40 40">
+    <path d="M36.3,32.1c-2.6,0.7-5.5-0.9-6.8-3.5l-2.9-6.2H20h-6.6l-2.9,6.2c-1.2,2.6-4.1,4.2-6.8,3.5c-2.6-0.7-4.2-3.4-3.5-6L2,19.3C2,19.2,2,19.1,2.1,19l1.5-5.8c0.8-3,3.9-5.4,6.9-5.4H20h9.5c3,0,6.1,2.4,6.9,5.4l1.5,5.8c0,0.1,0.1,0.2,0.1,0.3l1.8,6.8C40.5,28.7,39,31.4,36.3,32.1z M16.2,15c0-0.5-0.4-0.9-0.9-0.9h-2.5v-2.5c0-0.5-0.4-0.9-0.9-0.9H11c-0.5,0-0.9,0.4-0.9,0.9v2.5H7.5c-0.5,0-0.9,0.4-0.9,0.9v0.8c0,0.5,0.4,0.9,0.9,0.9h2.6v2.6c0,0.5,0.4,0.9,0.9,0.9h0.8c0.5,0,0.9-0.4,0.9-0.9v-2.6h2.5c0.5,0,0.9-0.4,0.9-0.9V15z M25.4,13.8c-0.9,0-1.7,0.7-1.7,1.7s0.7,1.7,1.7,1.7c0.9,0,1.7-0.7,1.7-1.7S26.3,13.8,25.4,13.8z M28.7,10.5c-0.9,0-1.7,0.7-1.7,1.7c0,0.9,0.7,1.7,1.7,1.7c0.9,0,1.7-0.7,1.7-1.7C30.3,11.2,29.6,10.5,28.7,10.5z M28.7,17c-0.9,0-1.7,0.7-1.7,1.7c0,0.9,0.7,1.7,1.7,1.7c0.9,0,1.7-0.7,1.7-1.7C30.3,17.8,29.6,17,28.7,17z M31.9,13.8c-0.9,0-1.7,0.7-1.7,1.7s0.7,1.7,1.7,1.7c0.9,0,1.7-0.7,1.7-1.7S32.9,13.8,31.9,13.8z"/>
+  </symbol>
+  <symbol id="ico-register" viewBox="0 0 40 40">
+    <path d="M31.6,36.5H8.4c-1.7,0-3.1-1.4-3.1-3.1v-4.6c0-3.8,1.8-6.9,5.2-9c1.1-0.7,2.4-1.2,3.8-1.6c-0.8-0.7-1.5-1.5-2-2.4c-0.8-1.3-1.2-2.9-1.2-4.4c0-4.9,4-8.9,8.9-8.9s8.9,4,8.9,8.9c0,1.6-0.4,3.1-1.2,4.4c-0.5,0.9-1.2,1.7-2,2.4c1.4,0.4,2.7,1,3.8,1.6c3.4,2,5.2,5.1,5.2,9v4.6C34.7,35.1,33.3,36.5,31.6,36.5z"/>
+  </symbol>
+  <symbol id="ico-shield" viewBox="0 0 40 40">
+    <path d="M20 3L5 9v10c0 9.4 6.4 18.2 15 21 8.6-2.8 15-11.6 15-21V9L20 3zm-2 26l-6-6 2.1-2.1L18 24.8l9.9-9.9 2.1 2.1L18 29z"/>
+  </symbol>
+  <symbol id="ico-lightning" viewBox="0 0 40 40">
+    <path d="M22 2L8 22h12l-2 16 14-20H20L22 2z"/>
+  </symbol>
+  <symbol id="ico-trophy" viewBox="0 0 40 40">
+    <path d="M30 5H10v2H6v6c0 3.3 2.7 6 6 6h.6C14 22.5 16.8 25 20 25s6-2.5 7.4-6H28c3.3 0 6-2.7 6-6V7h-4V5zM12 17c-2.2 0-4-1.8-4-4v-4h2v4h2v4zm20-4c0 2.2-1.8 4-4 4v-4h2V9h-2V7h4v6zM18 27h4v2h-4v-2zm-4 4h12v4H14v-4z"/>
+  </symbol>
+  <symbol id="ico-globe" viewBox="0 0 40 40">
+    <path d="M20 3C10.6 3 3 10.6 3 20s7.6 17 17 17 17-7.6 17-17S29.4 3 20 3zm14.8 15.9h-6.2c-.1-2.2-.3-4.2-.8-6.1 1.5-.4 3-.9 4.2-1.5.6.9 1.2 1.8 1.6 2.9.7 1.4 1.1 3 1.2 4.7zM20 5.4c.3.2.6.3.9.6.8.7 1.6 1.7 2.2 3 .4.7.7 1.5.9 2.3-1.3.2-2.7.4-4 .4V5.4zm-2 .6c-.8.7-1.6 1.7-2.2 3-.4.7-.7 1.5-.9 2.3 1.3.2 2.7.4 4 .4V5.4c-.3.2-.6.3-.9.6zm2 22.4c-.3-.2-.6-.3-.9-.6-.8-.7-1.6-1.7-2.2-3-.4-.7-.7-1.5-.9-2.3 1.3-.2 2.7-.4 4-.4v6.3zm2-.6c.8-.7 1.6-1.7 2.2-3 .4-.7.7-1.5.9-2.3-1.3-.2-2.7-.4-4-.4v6.3c.3-.2.6-.3.9-.6z"/>
+  </symbol>
+</svg>
+
+<div id="page-wrap">
+  <!-- Decorative bg elements -->
+  <div class="nebula-orb n1"></div>
+  <div class="nebula-orb n2"></div>
+  <div class="nebula-orb n3"></div>
+  <div class="scanlines"></div>
+  <div class="grid-lines"></div>
+  <div class="pulse-ring"></div>
+  <div class="pulse-ring r2"></div>
+  <div class="pulse-ring r3"></div>
+
+  <!-- TICKER BAR (top) -->
+  <div class="ticker-wrap">
+    <span class="ticker-label">LIVE</span>
+    <div class="ticker-track">
+      <span class="ticker-item">###KW### SLOT GACOR ONLINE<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">MINIMAL DEPOSIT 10000<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">RTP TERTINGGI 99%<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">SERVER RESMI BERSERTIFIKAT<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">SERVER ONLINE 24 JAM<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">JP MAXWIN TERBESAR<span class="ticker-sep">|</span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">###KW### SLOT GACOR ONLINE<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">MINIMAL DEPOSIT 10000<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">RTP TERTINGGI 99%<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">SERVER RESMI BERSERTIFIKAT<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">SERVER ONLINE 24 JAM<span class="ticker-sep">|</span></span>
+      <span class="ticker-item">JP MAXWIN TERBESAR<span class="ticker-sep">|</span></span>
+    </div>
+    </div>
+
+  <div id="main-content">
+
+    <!-- HEADER -->
+    <div class="header-section">
+      <!-- Logo -->
+      <a href="###DAFTAR###" class="logo-wrap">
+        <span class="logo-img-wrap">
+          <amp-img
+            src="###LOGO###"
+            alt="LOGO ###KW###"
+            width="auto"
+            height="57"
+            layout="fixed-height"
+            class="logo-amp amp-wp-enforced-sizes">
+            <noscript>
+              <img src="###LOGO###" alt="LOGO ###KW###" width="220" height="57">
+            </noscript>
+          </amp-img>
+        </span>
+      </a>
+
+      <!-- Status Badge -->
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Server Online &bull; SLOT GACOR &bull; Aktif 24 Jam
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+      <!-- Title -->
+      <h1 class="section-title">SITUS GACOR RTP 99%</h1>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-value">1-2 menit</span>
+          <span class="stat-label">PROSES</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">24/7</span>
+          <span class="stat-label">ONLINE</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">&lt;2 menit</span>
+          <span class="stat-label">WITHDRAW</span>
+        </div>
+      </div>
+
+      <!-- Banner Image -->
+      <div class="banner-frame">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+        <a href="###DAFTAR###">
+          <amp-img
+            src="###BANNER###"
+            alt="BANNER ###KW###"
+            width="600"
+            height="600"
+            layout="responsive"
+            class="banner-amp amp-wp-enforced-sizes">
+            <noscript>
+              <img src="###BANNER###" alt="BANNER ###KW###" width="600" height="600">
+            </noscript>
+          </amp-img>
+        </a>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons-section">
+      <a href="###DAFTAR###" class="btn-cta btn-primary">
+        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true">
+          <use href="#ico-login"/>
+        </svg>
+        LOGIN
+      </a>
+      <a href="###DAFTAR###" class="btn-cta btn-secondary">
+        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true">
+          <use href="#ico-register"/>
+        </svg>
+        DAFTAR
+      </a>
+    </div>
+<br>
+    <!-- DIVIDER -->
+    <div class="divider">
+      <span class="divider-line"></span>
+      <span class="divider-text">INFO</span>
+      <span class="divider-line"></span>
+    </div>
+<br>
+    <!-- FEATURE CARDS -->
+    <div class="features-section">
+
+      <div class="feature-card feature-card-1">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true"><use href="#ico-shield"/></svg>
+      </div>
+      <div class="feature-text">
+        <div class="feature-title">###KW### RESMI</div>
+        <div class="feature-desc">Situs ini adalah situs resmi dari ###KW###</div>
+      </div>
+      <span class="feature-badge">TERSERTIFIKASI</span>
+      </div>
+
+      <div class="feature-card feature-card-2">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true"><use href="#ico-lightning"/></svg>
+      </div>
+      <div class="feature-text">
+        <div class="feature-title">Slot Online Gacor</div>
+        <div class="feature-desc">Slot online resmi dengan fitur terlengkap</div>
+      </div>
+      <span class="feature-badge">10.000</span>
+      </div>
+
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-section">
+      <p class="footer-text">&#169; 2026 &bull; ###KW### &bull; ANAKSEO</p>
+    </div>
+
+  </div><!-- /main-content -->
+</div><!-- /page-wrap -->
+
+</body>
+</html>
